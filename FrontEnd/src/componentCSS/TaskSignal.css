@@ -1,0 +1,30 @@
+.con1{
+    display: flex;
+    column-gap: 20px;
+}
+.con2{
+    display: flex;
+    column-gap: 20px;
+}
+.con3{
+    display: flex;
+    column-gap: 20px;
+}
+.green{
+    width: 20px;
+    height: 20px;
+    background-color: green;
+}
+.yellow{
+    width: 20px;
+    height: 20px;
+    background-color: yellow;
+}
+.blue{
+    width: 20px;
+    height: 20px;
+    background-color: blue;
+}
+.para{
+    margin-top: 0px;
+}

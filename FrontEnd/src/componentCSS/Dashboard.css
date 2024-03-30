@@ -1,0 +1,37 @@
+.addTaskBtnposDash{
+margin-top: 50px;
+margin-left: 100px;
+}
+.das-container1{
+    display: flex;
+}
+.calenderDash{
+    margin-left: 80px;
+    margin-top: 60px;
+    width: 250px;
+}
+.das-container2{
+    display: flex;
+}
+.underlinecross1{
+    border: none;
+    border-left: 1px solid black;
+    margin-top: 50px;
+    margin-left: 0px;
+}
+.underlinecross2{
+    border: none;
+    border-bottom: 1px solid black;
+    margin-bottom: 520px;
+    width: 1200px;
+}
+.underlinecross3{
+    border: none;
+    border-bottom: 1px solid black;
+    margin-bottom: 520px;
+    margin-left: 100px;
+    width: 20px;
+}
+.taskPos{
+    margin-top: 100px;
+}

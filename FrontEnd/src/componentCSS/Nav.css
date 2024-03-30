@@ -1,0 +1,34 @@
+*{
+    font-family:cursive ;
+}
+.outer-container1{
+    display: flex;
+    column-gap: 1200px;
+}
+.inner-container1{
+    display: flex;
+    margin-top: 15px;
+    column-gap: 80px;
+}
+.profileImg{
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    margin-top: 1px;
+    border:#132C48 3px solid;
+}
+.userName{
+    font-size: 20px;
+    margin-top: 5px;
+    color: #132C48;
+    font-weight: 700px;
+    margin-left: 50px;
+    width: 130px;
+}
+.navBtn{
+    width:120px;
+    color: black;
+}
+.link{
+    text-decoration:none;
+}

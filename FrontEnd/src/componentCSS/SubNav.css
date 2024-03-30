@@ -1,0 +1,15 @@
+.containerSubNav{
+    display:flex;
+    column-gap: 40px;
+    margin-left: 100px;
+    margin-top: 50px;
+}
+.underlinesubnav{
+    border: none;
+    border-bottom: 1px rgb(201, 199, 199) solid;
+    width: 1700px;
+    margin-left: 100px;
+}
+.subnavdrop{
+    margin-top: 15px;
+}

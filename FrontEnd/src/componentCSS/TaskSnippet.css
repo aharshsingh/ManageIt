@@ -1,0 +1,28 @@
+.conatinertask1{
+    display: flex;
+    column-gap: 20px;
+}
+.conatinertask2{
+    display: flex;
+    column-gap: 20px;
+    margin-top: 50px;
+}
+.img1{
+    height: 30px;
+    width: 30px;
+}
+.conatinertask3{
+    display: flex;
+    column-gap: 150px
+}
+.outercon{
+    border: 1px solid black;
+    width: 750px;
+    height: 100px;
+}
+.a{
+    margin-top: 0px;
+}
+.b{
+    margin-left: 20px;
+}
