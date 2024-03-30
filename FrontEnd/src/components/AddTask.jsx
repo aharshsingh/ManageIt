@@ -1,12 +1,20 @@
 import React from 'react'
+import {useNavigate} from 'react-router-dom'
 import Navbar from './Navbar'
 import Dropdown from './dropdown'
 import '../componentCSS/AddTask.css'
 export default function AddTask() {
+  const navigate = useNavigate(); 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Here, you would handle your form submission (e.g., sending data to a server).
+    // After handling the submission, redirect to the '/dashboard' route:
+    navigate('/dashboard');
+  };
   return (
     <>
     <Navbar/>
-    <form className='addTaskForm'>
+    <form className='addTaskForm'  onSubmit={handleSubmit}>
         <fieldset className='fieldsetaddtask'>
         <legend>Add Task</legend>
         
