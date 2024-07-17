@@ -5,6 +5,7 @@
 }
 .addTaskBtnPos{
     margin-top: 280px;
+    cursor: pointer;
 }
 .HomeButton{
         width: 250px;
