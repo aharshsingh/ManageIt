@@ -3,7 +3,7 @@ import Navbar from './components/Navbar'
 import Home from './page/Home'
 import AddTask from './page/AddTask'
 import AddCategory from './components/AddCategory'
-import Dashboard from './components/Dashboard'
+import Dashboard from './page/Dashboard'
 import Signin from './page/Signin';
 import Signup from './page/Signup'
 function App() {

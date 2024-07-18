@@ -8,7 +8,6 @@ const taskController = {
         if (error) {
             return next(error);
         }
-        
         const task = new Task({
             taskName: req.body.taskName,
             description: req.body.description,
@@ -16,10 +15,21 @@ const taskController = {
             priority: req.body.priority,
             userId: req.params.userId
         })
-
         try {
             const result = await task.save();
             res.json(result);
+        } catch (error) {
+            return next(error);
+        }
+    },
+
+    async showTask(req,res,next){
+        const userId = req.params.userId;
+        let doc;
+        try {
+            doc = await Task.find({ userId: userId});
+            //console.log(doc);
+            res.json(doc);
         } catch (error) {
             return next(error);
         }

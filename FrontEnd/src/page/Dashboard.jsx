@@ -1,13 +1,25 @@
-import React from 'react'
-import Navbar from './Navbar'
-import Calender from './Calender'
-import SubNav from './SubNav'
-import AddCategoryBtn from './AddCategoryBtn'
-import AddTaskBtn from './AddTaskBtn'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
+import Navbar from '../components/Navbar'
+import Calender from '../components/Calender'
+import SubNav from '../components/SubNav'
+import AddCategoryBtn from '../components/AddCategoryBtn'
+import AddTaskBtn from '../components/AddTaskBtn'
 import '../componentCSS/Dashboard.css'
-import TaskSignal from './TaskSignal'
-import TaskSnippet from './TaskSnippet'
+import TaskSignal from '../components/TaskSignal'
+import TaskSnippet from '../components/TaskSnippet'
 export default function Dashboard() {
+  const [taskData, setTaskData] = useState({});
+  useEffect(()=>{
+    const fetchTask = async () => {
+      try {
+        const response = axios.get('');
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchTask();
+  },[])
   return (
     <>
       <Navbar/>
