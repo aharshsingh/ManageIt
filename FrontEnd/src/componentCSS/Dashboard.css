@@ -8,30 +8,18 @@ margin-left: 100px;
 .calenderDash{
     margin-left: 80px;
     margin-top: 60px;
-    width: 250px;
+    width: 300px;
 }
 .das-container2{
     display: flex;
+    column-gap: 30px;
 }
 .underlinecross1{
     border: none;
-    border-left: 1px solid black;
-    margin-top: 50px;
+    border-left: 1px solid rgb(197, 197, 197);
+    margin-top: 0px;
     margin-left: 0px;
 }
-.underlinecross2{
-    border: none;
-    border-bottom: 1px solid black;
-    margin-bottom: 520px;
-    width: 1200px;
-}
-.underlinecross3{
-    border: none;
-    border-bottom: 1px solid black;
-    margin-bottom: 520px;
-    margin-left: 100px;
-    width: 20px;
-}
 .taskPos{
-    margin-top: 100px;
+    margin-top: 200px;
 }

@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import {useNavigate} from 'react-router-dom'
 import Navbar from '../components/Navbar'
-import Dropdown from '../components/dropdown'
 import '../componentCSS/AddTask.css'
 import axios from 'axios'
 
@@ -39,7 +38,6 @@ export default function AddTask() {
     <form className='addTaskForm'  onSubmit={handleSubmit}>
         <fieldset className='fieldsetaddtask'>
         <legend>Add Task</legend>
-        <div className='divdrop'><Dropdown/></div>
         
         <label className='inputaddtask' for="taskname">Task Name:</label>
         <input type="text" id="name" className="taskname" value = {taskName} onChange={(event) => setTaskName(event.target.value)} required/><br/><br/>

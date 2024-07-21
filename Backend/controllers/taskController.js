@@ -1,6 +1,7 @@
 const Task = require('../models/task');
 const { taskValidationSchema } = require('../service/validator');
 const CustomErrorHandler = require('../customErrorHandler/customErrorHandler');
+const dayjs = require('dayjs');
 
 const taskController = {
     async addTask(req,res,next){
@@ -22,18 +23,23 @@ const taskController = {
             return next(error);
         }
     },
-
-    async showTask(req,res,next){
-        const userId = req.params.userId;
-        let doc;
-        try {
-            doc = await Task.find({ userId: userId});
-            //console.log(doc);
-            res.json(doc);
-        } catch (error) {
-            return next(error);
-        }
+    
+    async showTask(req, res, next) {
+    const userId = req.params.userId;
+    const date = req.body.date;
+    const formattedDate = dayjs(date).format('YYYY-MM-DD');
+    try {
+        const tasks = await Task.find({ userId: userId });
+        const result = tasks.filter(task => {
+            const deadline = dayjs(task.deadline).format('YYYY-MM-DD');
+            return formattedDate === deadline;
+        });
+        console.log(result);
+        res.json(result);
+    } catch (error) {
+        next(error); 
     }
+}
 }
 
 module.exports = taskController;
