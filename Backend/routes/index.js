@@ -8,4 +8,6 @@ router.post('/verify', loginController.verify);
 router.get('/userInfo/:userId', userController.userInfo);
 router.post('/addTask/:userId', taskController.addTask);
 router.post('/showTask/:userId', taskController.showTask);
+router.post('/editTask/:taskId', taskController.editTask);
+router.get('/showSpecificTask/:taskId', taskController.showSpecificTask);
 module.exports = router;

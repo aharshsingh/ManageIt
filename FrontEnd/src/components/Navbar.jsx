@@ -10,7 +10,6 @@ export default function Navbar({ userId }) {
     const fetchUserInfo = async () => {
       try {
         const response = await axios.get(`http://localhost:7000/userInfo/${userId}`);
-        //console.log('Response data:', response.data);
         setUserData(response.data); 
       } catch (error) {
         console.error('Error fetching user information:', error);
@@ -34,9 +33,6 @@ export default function Navbar({ userId }) {
         </Link>
         <Link className='link' to="/AddTask">
           <p className='navBtn' id='name2'>Add Task</p>
-        </Link>
-        <Link className='link' to="/AddCategory">
-          <p className='navBtn' id='name2'>Add Category</p>
         </Link>
       </div>
     </div>

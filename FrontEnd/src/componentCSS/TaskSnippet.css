@@ -4,16 +4,16 @@
 }
 .conatinertask2{
     display: flex;
-    column-gap: 20px;
-    margin-top: 50px;
+    column-gap: 10px;
+    margin-top: 75px;
 }
 .img1{
-    height: 30px;
-    width: 30px;
+    height: 20px;
+    width: 20px;
 }
 .conatinertask3{
     display: flex;
-    column-gap: 150px
+    column-gap: 300px
 }
 .outercon{
     border: 1px solid black;
