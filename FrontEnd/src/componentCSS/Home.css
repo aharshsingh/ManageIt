@@ -1,24 +1,28 @@
 .filler{
     margin-top:250px;
     margin-left: 80px;
-    font-size: 40px;
+    font-size: 30px;
 }
 .addTaskBtnPos{
-    margin-top: 280px;
+    margin-top: 50px;
+    margin-left: 410px;
     cursor: pointer;
 }
 .HomeButton{
-        width: 250px;
+        width: 200px;
         height: 60px;
-        background-color: #7c7ae4;
+        background-color: #e67925e0;
         border-radius: 50px;
         border: 0px;
+}
+.HomeButton:hover{
+    background-color: #287eb8;
 }
 .para3{
     color:#ebebeb;
     font-size: 20px;
     font-weight: 600;
-    margin-top: 15px;
+    margin-top: 5px;
 }
 .homeContainer{
     display: flex;

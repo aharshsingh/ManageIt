@@ -1,23 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import '../componentCSS/Signin.css'  
 import { Navigate } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
+import { UserContext } from '../context/UserContext';
+
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
   const [redirect, setRedirect] = useState(false);
   const [userId, setUserId] = useState(null);
+  const {user, setUser} = useContext(UserContext);
+
   const verifyToken = async (token) => {
     try {
       const response = await axios.post('http://localhost:7000/verify', { jwtToken: token });
+      
       if (response.status === 200) {
         setMessage('Login successful!');
-        setRedirect(true); // Set redirect to true on successful login
-      } else {
+        setRedirect(true);
+      } 
+      
+      else {
         setMessage('Login failed. Please try again.');
       }
+
     } catch (error) {
       setMessage('Token verification failed. Please try again.');
     }
@@ -25,12 +33,13 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
       const response = await axios.post('http://localhost:7000/login', {
         email,
         password,
       });
-      console.log(response.data);
+
       if (response.status === 200) {
         const { token } = response.data;
         localStorage.setItem('token', token);
@@ -38,10 +47,26 @@ const Login = () => {
         const decodedToken = jwtDecode(token);
         const { _id } = decodedToken;
         setUserId(_id);
-        // console.log(decodedToken);
-      } else {
+
+        const userUpdate = async () => {
+          try {
+            const userInfoResponse = await axios.get(`http://localhost:7000/userInfo/${_id}`);
+            const { userName, email } = userInfoResponse.data;
+            setUser({ userName, email, _id });
+            console.log(user)
+            setRedirect(true);
+          } catch (error) {
+            console.log(error);
+            setMessage('Failed to fetch user info. Please try again.');
+          }
+        };
+        await userUpdate();
+      } 
+
+      else {
         setMessage('Login failed. Please try again.');
       }
+
     } catch (error) {
       setMessage('Login failed. Please try again.');
     }

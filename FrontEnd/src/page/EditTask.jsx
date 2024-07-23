@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import {useNavigate} from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import '../componentCSS/AddTask.css'
 import axios from 'axios'
+import { UserContext } from '../context/UserContext';
 
 export default function AddTask() {
   const [taskName, setTaskName] = useState('');
@@ -10,6 +11,7 @@ export default function AddTask() {
   const [deadline, setDeadline] = useState('');
   const [priority, setPriority] = useState('');
   const [taskData, setTaskData] = useState('');
+  const {user} = useContext(UserContext);
   const navigate = useNavigate(); 
 
   const handleSubmit = (event) => {
@@ -17,7 +19,7 @@ export default function AddTask() {
     console.log({taskName, description, deadline, priority})
     const postTaskData = async ()=>{
       try {
-        const response = await axios.post('http://localhost:7000/editTask/66982c26338007adfee535bf',{  
+        const response = await axios.post(`http://localhost:7000/editTask/${user._id}`,{  
           taskName,
           description,
           deadline,   

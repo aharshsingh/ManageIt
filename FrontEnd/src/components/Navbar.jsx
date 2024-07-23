@@ -1,31 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom'; 
 import '../componentCSS/Nav.css';
-import axios from 'axios';
+import { UserContext } from '../context/UserContext';
 
-export default function Navbar({ userId }) {
-  const [userData, setUserData] = useState({});
-
-  useEffect(() => {
-    const fetchUserInfo = async () => {
-      try {
-        const response = await axios.get(`http://localhost:7000/userInfo/${userId}`);
-        setUserData(response.data); 
-      } catch (error) {
-        console.error('Error fetching user information:', error);
-      }
-    };
-
-    if (userId) {
-      fetchUserInfo();
-    }
-  }, [userId]);
+export default function Navbar() {
+  const { user } = useContext(UserContext);
 
   return (
     <div className='outer-container1'>
       <div className='inner-container1'>
         {/* <img className='profileImg' src={downimg} alt="profileImage" /> */}
-        <p className='userName'>Hi,<br/>{userData.userName}</p>
+        <p className='userName'>Hi, {user.userName}</p>
       </div>
       <div className='inner-container1'>
         <Link className='link' to="/Dashboard">
@@ -33,6 +18,9 @@ export default function Navbar({ userId }) {
         </Link>
         <Link className='link' to="/AddTask">
           <p className='navBtn' id='name2'>Add Task</p>
+        </Link>
+        <Link className='link' to="/Home">
+          <p className='navBtn' id='name2'>Home</p>
         </Link>
       </div>
     </div>

@@ -2,42 +2,92 @@
     font-size: 20px;
 }
 .addTaskForm{
-    width: 700px;
-    margin-left: 600px;
-    margin-top: 200px;
+    width: 1000px;
+    height: 1200px;
+    margin-left: 480px;
+    margin-top: 80px;
 }
 .taskname{
+    margin-top: 75px;
     border: none; 
-    margin-left: 25px;
-    border-bottom: 2px solid rgb(0, 0, 0); 
+    margin-left: 300px;
+    background-color: #fef5bdab;
+    height: 45px;
+    width: 350px;
+    padding-left: 25px;
+    border-radius: 5px;
     outline: none;
+    box-shadow: 0px 4px 4px 0px rgba(131, 131, 131, 0.25);
+}
+.taskname::placeholder{
+    color: #ada678f3;
+}
+.taskname:hover{
+    scale: 1.09;
+    transition: 1s;
 }
 .Description{
     border: none; 
-    margin-left: 20px;
-    border-bottom: 2px solid rgb(0, 0, 0); 
+    margin-left: 300px;
+    background-color: #fef5bdab;
+    height: 45px;
+    width: 350px;
+    padding-left: 25px;
+    border-radius: 5px;
     outline: none;
+    margin-top: 35px;
+    box-shadow: 0px 4px 4px 0px rgba(131, 131, 131, 0.25);
+}
+.Description:hover{
+    scale: 1.09;
+    transition: 1s;
+}
+.Description::placeholder{
+    color: #ada678f3;
 }
 .deadline{
-    margin-left: 45px;
+    margin-top: 0px;
+    border: none; 
+    margin-left: 300px;
+    background-color: #fef5bdab;
+    height: 45px;
+    width: 350px;
+    padding-left: 25px;
+    border-radius: 5px;
+    outline: none;
+    color: #ada678f3;
+    box-shadow: 0px 4px 4px 0px rgba(131, 131, 131, 0.25);
+}
+.deadline:hover{
+    scale: 1.09;
+    transition: 1s;
 }
 .inputaddtask{
-    margin-left: 90px;
+    margin-left: 300px;
+    color: #afa667f3;
 }
 .addtasksubmit{
-    margin-left: 500px;
-}
-.divdrop{
-    margin-left: 500px;
-}
-.dropdown{
-    font-size: 15px;
-    color: black;
-    height: 40px;
-    width: 100px;
+    margin-left: 400px;
+    margin-top: 20px;
+    background-color: #fef5bdab;
     border: none;
-    outline: none;
+    padding: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    font-size: 18x;
+    cursor: pointer;
+    color: #ada678f3;
+    box-shadow: 0px 4px 4px 0px rgba(131, 131, 131, 0.25);
+    border-radius: 5px;
 }
-.dropdown:hover{
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+#basic{
+    margin-left: 300px;
+}
+.priority{
+    margin-left: 92px;
+    color: #afa667f3;
+}
+.fieldsetaddtask{
+    border: none;
+    box-shadow: 4px 4px 4px 4px rgba(90, 90, 90, 0.25);
 }
