@@ -17,6 +17,10 @@ Task Manager is a MERN stack application that allows users to manage their tasks
 
 - React
 - Axios
+- Jwt-decode
+- Dayjs
+- lottie-react
+- @mui/material
 
 ### Backend
 
