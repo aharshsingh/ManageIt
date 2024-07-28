@@ -13,7 +13,7 @@ const SignUp = () => {
     e.preventDefault();
     //debugger;
     try {
-      const response = await axios.post('http://localhost:7000/register', {
+      const response = await axios.post('https://taskmanager-3wit.onrender.com/register', {
         userName,
         email,
         password,

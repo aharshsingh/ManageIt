@@ -19,7 +19,7 @@ export default function AddTask() {
     console.log({taskName, description, deadline, priority})
     const postTaskData = async ()=>{
       try {
-        const response = await axios.post(`http://localhost:7000/editTask/${user._id}`,{  
+        const response = await axios.post(`https://taskmanager-3wit.onrender.com/editTask/${user._id}`,{  
           taskName,
           description,
           deadline,   
@@ -38,7 +38,7 @@ export default function AddTask() {
   useEffect(()=>{
     const fetchTask = async ()=>{
       try {
-        const response = await axios.get('http://localhost:7000/showSpecificTask/66982c26338007adfee535bf')
+        const response = await axios.get('https://taskmanager-3wit.onrender.com/showSpecificTask/66982c26338007adfee535bf')
         if (response && response.data) {
           setTaskName(response.data.taskName);
           setDescription(response.data.description);

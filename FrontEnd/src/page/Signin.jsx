@@ -15,7 +15,7 @@ const Login = () => {
 
   const verifyToken = async (token) => {
     try {
-      const response = await axios.post('http://localhost:7000/verify', { jwtToken: token });
+      const response = await axios.post('https://taskmanager-3wit.onrender.com/verify', { jwtToken: token });
       
       if (response.status === 200) {
         setMessage('Login successful!');
@@ -35,7 +35,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:7000/login', {
+      const response = await axios.post('https://taskmanager-3wit.onrender.com/login', {
         email,
         password,
       });
@@ -50,7 +50,7 @@ const Login = () => {
 
         const userUpdate = async () => {
           try {
-            const userInfoResponse = await axios.get(`http://localhost:7000/userInfo/${_id}`);
+            const userInfoResponse = await axios.get(`https://taskmanager-3wit.onrender.com/userInfo/${_id}`);
             const { userName, email } = userInfoResponse.data;
             setUser({ userName, email, _id });
             console.log(user)

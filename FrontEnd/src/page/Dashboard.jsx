@@ -30,7 +30,7 @@ export default function Dashboard() {
   const fetchTask = useCallback(async (date) => {
     const isoDate = date.toISOString();
     try {
-      const response = await axios.post(`http://localhost:7000/showTask/${user._id}`, {
+      const response = await axios.post(`https://taskmanager-3wit.onrender.com/showTask/${user._id}`, {
         date: isoDate,
       });
       if (!response) {
@@ -48,7 +48,7 @@ export default function Dashboard() {
   useEffect(() => {
     const fetchTaskByPriority = async() => {
       try {
-        const response = await axios.get(`http://localhost:7000/showTaskByPriority/${user._id}`)
+        const response = await axios.get(`https://taskmanager-3wit.onrender.com/showTaskByPriority/${user._id}`)
         if (!response) {
           console.log("Error in fetching data");
           setMessage('Error in fetching data');

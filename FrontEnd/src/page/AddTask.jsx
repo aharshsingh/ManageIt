@@ -18,7 +18,7 @@ export default function AddTask() {
     console.log({taskName, description, deadline, priority})
     const postTaskData = async ()=>{
       try {
-        const response = await axios.post(`http://localhost:7000/addTask/${user._id}`,{  
+        const response = await axios.post(`https://taskmanager-3wit.onrender.com/addTask/${user._id}`,{  
           taskName,
           description,
           deadline,   
