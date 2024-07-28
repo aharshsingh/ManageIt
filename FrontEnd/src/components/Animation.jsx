@@ -4,12 +4,12 @@ import animationData from '../images/Animation - 1721732481403.json';
 
 const LottieAnimation = () => {
   return (
-    <div style={{ width: 500, height: 700 }}>
+    <div style={{ width: '100%', maxWidth: '500px', height: 'auto', margin: '0 auto' }}>
       <Lottie 
         animationData={animationData} 
         loop={true} 
         autoplay={true}
-        style={{ width: '100%', height: '100%' }}
+        style={{ width: '100%', height: 'auto' }}
       />
     </div>
   );

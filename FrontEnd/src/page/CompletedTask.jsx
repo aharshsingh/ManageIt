@@ -26,7 +26,6 @@ export default function Dashboard() {
   const handlecheck = () => {
     setCheck(true);
   }
-  
   const fetchTask = useCallback(async (date) => {
     const isoDate = date.toISOString();
     try {
@@ -45,27 +44,28 @@ export default function Dashboard() {
     }
   }, []);
 
-  useEffect(() => {
-    const fetchTaskByPriority = async() => {
-      try {
-        const response = await axios.get(`http://localhost:7000/showTaskByPriority/${user._id}`)
-        if (!response) {
-          console.log("Error in fetching data");
-          setMessage('Error in fetching data');
-        }
-        setTaskData(response.data);
-        console.log(response.data);
-      } catch (error) { 
-        console.log(error);
+  const fetchCompletedTask = async() => {
+    try {
+      const response = await axios.get(`http://localhost:7000/showCompletedTask/${user._id}`)
+      if (!response) {
+        console.log("Error in fetching data");
+        setMessage('Error in fetching data');
       }
+      setTaskData(response.data);
+      console.log(response.data);
+    } catch (error) { 
+      console.log(error);
     }
+  }
+
+  useEffect(() => {
     if(check === true){
-      fetchTaskByPriority();
+      fetchCompletedTask();
     }
     else{
     fetchTask(selectedDate);
     } 
-  }, [selectedDate, fetchTask]);
+  }, [selectedDate, fetchTask, check]);
 
   return (
     <>

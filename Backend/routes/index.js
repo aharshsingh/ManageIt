@@ -10,4 +10,6 @@ router.post('/addTask/:userId', taskController.addTask);
 router.post('/showTask/:userId', taskController.showTask);
 router.post('/editTask/:taskId', taskController.editTask);
 router.get('/showSpecificTask/:taskId', taskController.showSpecificTask);
+router.get('/showTaskByPriority/:userId', taskController.showTaskByPriority);
+router.get('/showCompletedTask/:userId', taskController.showCompletedTask);
 module.exports = router;

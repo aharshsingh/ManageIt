@@ -1,15 +1,68 @@
-.containerSubNav{
-    display:flex;
+.containerSubNav {
+    display: flex;
     column-gap: 40px;
     margin-left: 100px;
     margin-top: 50px;
+    flex-wrap: nowrap; /* Prevent wrapping */
 }
-.underlinesubnav{
+
+.underlinesubnav {
     border: none;
     border-bottom: 1px rgb(201, 199, 199) solid;
     width: 1700px;
     margin-left: 100px;
 }
-.subnavdrop{
-    margin-top: 15px;
+
+.paraSubNav {
+    margin: 0;
+}
+
+.link {
+    text-decoration: none;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .containerSubNav {
+        column-gap: 30px;
+        margin-left: 50px;
+    }
+
+    .underlinesubnav {
+        width: 100%;
+        margin-left: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .containerSubNav {
+        column-gap: 20px;
+        margin-left: 20px;
+        justify-content: center; /* Center the links */
+        font-size: 0.9em; /* Reduce font size */
+    }
+
+    .underlinesubnav {
+        width: 100%;
+        margin-left: 20px;
+    }
+
+    .paraSubNav {
+        font-size: 17px;
+    }
+    
+}
+
+@media (max-width: 480px) {
+    .containerSubNav {
+        column-gap: 10px;
+        margin-left: 10px;
+        justify-content: space-around; /* Space items evenly */
+        font-size: 0.8em; /* Further reduce font size */
+    }
+
+    .underlinesubnav {
+        width: 100%;
+        margin-left: 10px;
+    }
 }

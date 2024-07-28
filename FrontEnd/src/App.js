@@ -6,7 +6,8 @@ import Dashboard from './page/Dashboard';
 import Signin from './page/Signin';
 import Signup from './page/Signup';
 import EditTask from './page/EditTask';
-import { UserProvider } from './context/UserContext'; // Correct import
+import CompletedTask from './page/CompletedTask'
+import { UserProvider } from './context/UserContext'; 
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/addtask" Component={AddTask}></Route>
           <Route path="/edittask" Component={EditTask}></Route>
           <Route path="/Dashboard" Component={Dashboard}></Route>
+          <Route path="/Dashboard/completedTask" Component={CompletedTask}></Route>
           <Route path="*" element={<Navigate to="/Home" replace />} />
         </Routes>
       </BrowserRouter>

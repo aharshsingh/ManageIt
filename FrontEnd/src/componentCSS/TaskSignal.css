@@ -1,30 +1,66 @@
-.con1{
-    display: flex;
-    column-gap: 20px;
+.con1, .con2, .con3 {
+  display: flex;
+  align-items: center; 
+  column-gap: 10px; 
 }
-.con2{
-    display: flex;
-    column-gap: 20px;
+
+.green, .yellow, .blue {
+  width: 20px;
+  height: 20px;
 }
-.con3{
-    display: flex;
-    column-gap: 20px;
+
+.green {
+  background-color: green;
 }
-.green{
-    width: 20px;
-    height: 20px;
-    background-color: green;
+
+.yellow {
+  background-color: yellow;
 }
-.yellow{
-    width: 20px;
-    height: 20px;
-    background-color: yellow;
+
+.blue {
+  background-color: blue;
 }
-.blue{
-    width: 20px;
-    height: 20px;
-    background-color: blue;
+
+.para {
+  margin-top: 0px;
 }
-.para{
-    margin-top: 0px;
+
+
+@media (max-width: 1200px) {
+  .con1, .con2, .con3 {
+      column-gap: 8px;
+  }
+
+  .green, .yellow, .blue {
+      width: 18px;
+      height: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .con1, .con2, .con3 {
+      flex-wrap: nowrap; 
+      column-gap: 6px;
+  }
+
+  .green, .yellow, .blue {
+      width: 16px;
+      height: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .con1, .con2, .con3 {
+      flex-wrap: nowrap; 
+      column-gap: 4px;
+  }
+
+  .green, .yellow, .blue {
+      width: 14px;
+      height: 14px;
+  }
+
+  .para {
+      margin-top: 5px;
+  }
 }

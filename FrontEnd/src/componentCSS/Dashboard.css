@@ -1,25 +1,52 @@
-.addTaskBtnposDash{
-margin-top: 50px;
-margin-left: 100px;
+ .addTaskBtnposDash {
+  margin-top: 50px;
+  margin-left: 100px;
 }
-.das-container1{
-    display: flex;
+
+.calenderDash {
+  margin-left: 80px;
+  margin-top: 60px;
+  width: 300px;
 }
-.calenderDash{
-    margin-left: 80px;
-    margin-top: 60px;
-    width: 300px;
+
+.das-container2 {
+  display: flex;
+  column-gap: 30px;
+  flex-wrap: wrap;
 }
-.das-container2{
-    display: flex;
-    column-gap: 30px;
+
+.underlinecross1 {
+  border: none;
+  border-left: 1px solid rgb(197, 197, 197);
+  margin-top: 0px;
 }
-.underlinecross1{
-    border: none;
-    border-left: 1px solid rgb(197, 197, 197);
-    margin-top: 0px;
-    margin-left: 0px;
+
+.taskPos {
+  margin-top: 55px;
 }
-.taskPos{
-    margin-top: 55px;
+
+
+
+@media (max-width: 768px) {
+  .addTaskBtnposDash {
+      display: none;
+  }
+
+  .calenderDash {
+      margin-left: 65px;
+      margin-top: 40px;
+  }
+
+  .underlinecross1 {
+    display: none;
+  }
+
+  .das-container2 {
+      column-gap: 15px;
+  }
+
+  .taskPos {
+      margin-top: 35px;
+      margin-left:40px ;
+  }
 }
