@@ -29,7 +29,7 @@ export default function Dashboard() {
   const fetchTask = useCallback(async (date) => {
     const isoDate = date.toISOString();
     try {
-      const response = await axios.post(`https://taskmanager-3wit.onrender.com/showTask/${user._id}`, {
+      const response = await axios.post(`https://taskmanager-bai4.onrender.com/showTask/${user._id}`, {
         date: isoDate,
       });
       if (!response) {
@@ -46,7 +46,7 @@ export default function Dashboard() {
 
   const fetchCompletedTask = async() => {
     try {
-      const response = await axios.get(`https://taskmanager-3wit.onrender.com/showCompletedTask/${user._id}`)
+      const response = await axios.get(`https://taskmanager-bai4.onrender.com/showCompletedTask/${user._id}`)
       if (!response) {
         console.log("Error in fetching data");
         setMessage('Error in fetching data');

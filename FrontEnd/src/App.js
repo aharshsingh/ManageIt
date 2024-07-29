@@ -6,7 +6,7 @@ import Dashboard from './page/Dashboard';
 import Signin from './page/Signin';
 import Signup from './page/Signup';
 import EditTask from './page/EditTask';
-import CompletedTask from './page/CompletedTask'
+import CompletedTask from './page/CompletedTask';
 import { UserProvider } from './context/UserContext'; 
 
 function App() {
@@ -14,6 +14,7 @@ function App() {
     <UserProvider>
       <BrowserRouter>
         <Routes>
+          <Route path="/" element={<Navigate to="/Signup" replace />} />
           <Route path="/Home" Component={Home}></Route>
           <Route path="/Navbar" Component={Navbar}></Route>
           <Route path="/Signin" Component={Signin}></Route>
@@ -22,7 +23,7 @@ function App() {
           <Route path="/edittask" Component={EditTask}></Route>
           <Route path="/Dashboard" Component={Dashboard}></Route>
           <Route path="/Dashboard/completedTask" Component={CompletedTask}></Route>
-          <Route path="*" element={<Navigate to="/Home" replace />} />
+          <Route path="*" element={<Navigate to="/Signup" replace />} />
         </Routes>
       </BrowserRouter>
     </UserProvider>
