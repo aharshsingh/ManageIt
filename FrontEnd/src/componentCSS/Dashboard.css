@@ -3,6 +3,12 @@
   margin-left: 100px;
 }
 
+.no-tasks-message {
+  color: #555; 
+  font-size: 1.2em; 
+  margin-top: 20px; 
+}
+
 .calenderDash {
   margin-left: 80px;
   margin-top: 60px;

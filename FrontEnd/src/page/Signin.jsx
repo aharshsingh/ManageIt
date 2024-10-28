@@ -15,7 +15,7 @@ const Login = () => {
 
   const verifyToken = async (token) => {
     try {
-      const response = await axios.post('https://taskmanager-bai4.onrender.com/verify', { jwtToken: token });
+      const response = await axios.post('http://localhost:7000/verify', { jwtToken: token });
       
       if (response.status === 200) {
         setMessage('Login successful!');
@@ -35,7 +35,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('https://taskmanager-bai4.onrender.com/login', {
+      const response = await axios.post('http://localhost:7000/login', {
         email,
         password,
       });
@@ -50,9 +50,12 @@ const Login = () => {
 
         const userUpdate = async () => {
           try {
-            const userInfoResponse = await axios.get(`https://taskmanager-bai4.onrender.com/userInfo/${_id}`);
+            const userInfoResponse = await axios.get(`http://localhost:7000/userInfo/${_id}`);
             const { userName, email } = userInfoResponse.data;
             setUser({ userName, email, _id });
+            localStorage.setItem('userName', userName);
+            localStorage.setItem('email', email);
+            localStorage.setItem('_id', _id);
             console.log(user)
             setRedirect(true);
           } catch (error) {

@@ -7,7 +7,9 @@ import Signin from './page/Signin';
 import Signup from './page/Signup';
 import EditTask from './page/EditTask';
 import CompletedTask from './page/CompletedTask';
+import Floating from './components/Foalting'
 import { UserProvider } from './context/UserContext'; 
+import './App.css';
 
 function App() {
   return (
@@ -20,8 +22,9 @@ function App() {
           <Route path="/Signin" Component={Signin}></Route>
           <Route path="/Signup" Component={Signup}></Route>
           <Route path="/addtask" Component={AddTask}></Route>
-          <Route path="/edittask" Component={EditTask}></Route>
+          <Route path="/editTask/:taskId" Component={EditTask}></Route>
           <Route path="/Dashboard" Component={Dashboard}></Route>
+          <Route path="/Floating" Component={Floating}></Route>
           <Route path="/Dashboard/completedTask" Component={CompletedTask}></Route>
           <Route path="*" element={<Navigate to="/Signup" replace />} />
         </Routes>

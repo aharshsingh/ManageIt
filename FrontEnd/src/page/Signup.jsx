@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import '../componentCSS/Signup.css';  
-import { Navigate } from 'react-router-dom';
+import { Navigate, Link } from 'react-router-dom';
 
 const SignUp = () => {
   const [userName, setUserName] = useState('');
@@ -13,7 +13,7 @@ const SignUp = () => {
     e.preventDefault();
     //debugger;
     try {
-      const response = await axios.post('https://taskmanager-bai4.onrender.com/register', {
+      const response = await axios.post('http://localhost:7000/register', {
         userName,
         email,
         password,
@@ -49,6 +49,7 @@ const SignUp = () => {
           <input  type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
         </div>
         <button type="submit">Sign Up</button>
+        <Link to='/Signin' className='login'><p style={{fontSize:'15px', marginTop:'20px'}}>Already Signed Up? Login</p></Link>
       </form>
       {message && <p>{message}</p>}
     </div>

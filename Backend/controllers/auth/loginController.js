@@ -7,7 +7,7 @@ const JwtToken = require('../../models/JWT');
 
 const loginController = {
     async login(req,res,next){
-        //validation
+    
         const loginSchema = Joi.object({
             email: Joi.string().email().required(),
             password: Joi.string().pattern(new RegExp('^[a-zA-Z0-9]{4,16}$')).required()
@@ -21,12 +21,12 @@ const loginController = {
             const user = await User.findOne({ email: req.body.email });
             if(!user)
                 return next(customErrorHandler.wrongCredentials('Username or password is wrong'))
-            //compare the password
+            
             const match = await bcrypt.compare(req.body.password, user.password)
             if(!match){
                 return next(customErrorHandler.wrongCredentials('Username or password is wrong'))
             }
-            //token
+        
             const token = JwtService.sign({ _id: user._id });
             const access_token = new JwtToken({ token });
             await access_token.save();
@@ -37,7 +37,7 @@ const loginController = {
     },
 
     async verify(req,res,next){
-        //validation of the JWT token
+       
         const tokenSchema = Joi.object({
             jwtToken : Joi.string().required()
         });

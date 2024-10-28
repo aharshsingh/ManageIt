@@ -95,20 +95,17 @@ const taskController = {
     async showTaskByPriority(req, res, next) {
         let result;
         try {
-            result = await Task.find({ userId: req.params.userId });
+            result = await Task.find({ userId: req.params.userId, iscompleted: false });
             if (!result || result.length === 0) {
                 return res.json({ message: 'Task not found' });
             }
     
-            // Sort by deadline first, and then by priority
             result.sort((a, b) => {
-                // First, compare by deadline
                 const deadlineComparison = new Date(a.deadline) - new Date(b.deadline);
                 if (deadlineComparison !== 0) {
                     return deadlineComparison;
                 }
     
-                // If deadlines are the same, compare by priority
                 const priorityOrder = { 'High': 1, 'Medium': 2, 'Low': 3 };
                 return priorityOrder[a.priority.toLowerCase()] - priorityOrder[b.priority.toLowerCase()];
             });
@@ -130,6 +127,43 @@ const taskController = {
         } catch (error) {
             return next(error);
         }
+    },
+
+    async completeTask(req,res,next){ 
+        try {
+            const { taskId } = req.params; 
+    
+            const updatedTask = await Task.findByIdAndUpdate(
+              taskId,
+              { iscompleted: true }, 
+              { new: true } 
+            );
+      
+            if (!updatedTask) {
+              return res.status(404).json({ message: 'Task not found' });
+            }
+            return res.status(200).json({
+              message: 'Task marked as completed successfully',
+              task: updatedTask
+            });
+          } catch (error) {
+            console.error('Error completing task:', error);
+            return res.status(500).json({ message: 'Internal server error' });
+          }
+    },
+
+    async deleteTask(req,res,next){
+        const { taskId } = req.params;
+
+    try {
+        const deletedTask = await Task.findByIdAndDelete(taskId);
+        if (!deletedTask) {
+            return res.status(404).json({ message: 'Task not found' });
+        }
+        res.json({ message: 'Task deleted successfully', task: deletedTask });
+    } catch (error) {
+        return next(error);
+    }
     }
     
 }

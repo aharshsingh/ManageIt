@@ -1,14 +1,13 @@
-import React, { useEffect, useState, useCallback, useContext } from 'react'
-import axios from 'axios'
-import Navbar from '../components/Navbar'
+import React, { useEffect, useState, useCallback, useContext } from 'react';
+import axios from 'axios';
+import Navbar from '../components/Navbar';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
 import dayjs from 'dayjs';
-import SubNav from '../components/SubNav'
-import '../componentCSS/Dashboard.css'
-import TaskSignal from '../components/TaskSignal'
-import TaskSnippet from '../components/TaskSnippet'
+import SubNav from '../components/SubNav';
+import '../componentCSS/Dashboard.css';
+import TaskSnippet from '../components/TaskSnippet';
 import { UserContext } from '../context/UserContext';
 
 export default function Dashboard() {
@@ -25,11 +24,12 @@ export default function Dashboard() {
 
   const handlecheck = () => {
     setCheck(true);
-  }
+  };
+
   const fetchTask = useCallback(async (date) => {
     const isoDate = date.toISOString();
     try {
-      const response = await axios.post(`https://taskmanager-bai4.onrender.com/showTask/${user._id}`, {
+      const response = await axios.post(`http://localhost:7000/showTask/${user._id}`, {
         date: isoDate,
       });
       if (!response) {
@@ -42,11 +42,11 @@ export default function Dashboard() {
       console.log(error);
       setMessage('Error in fetching data');
     }
-  }, []);
+  }, [user._id]);
 
   const fetchCompletedTask = async() => {
     try {
-      const response = await axios.get(`https://taskmanager-bai4.onrender.com/showCompletedTask/${user._id}`)
+      const response = await axios.get(`http://localhost:7000/showCompletedTask/${user._id}`);
       if (!response) {
         console.log("Error in fetching data");
         setMessage('Error in fetching data');
@@ -56,14 +56,13 @@ export default function Dashboard() {
     } catch (error) { 
       console.log(error);
     }
-  }
+  };
 
   useEffect(() => {
-    if(check === true){
+    if (check === true) {
       fetchCompletedTask();
-    }
-    else{
-    fetchTask(selectedDate);
+    } else {
+      fetchTask(selectedDate);
     } 
   }, [selectedDate, fetchTask, check]);
 
@@ -78,13 +77,16 @@ export default function Dashboard() {
               <DateCalendar value={selectedDate} onChange={handleDateChange} />
             </LocalizationProvider>
           </div>
-          <div className='addTaskBtnposDash'><TaskSignal /></div>
         </div>
         <div className='underlinecross1'></div>
         <div className='taskPos'>
-          {taskData.map((task) => (
-            <TaskSnippet key={task._id} task={task} />
-          ))}
+          {taskData.length > 0 ? (
+            taskData.map((task) => (
+              <TaskSnippet key={task._id} task={task} />
+            ))
+          ) : (
+            <p className="no-tasks-message">No completed tasks to show. Please add some tasks!</p> // Message displayed when no completed tasks are found
+          )}
         </div>
       </div>
     </>

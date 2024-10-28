@@ -18,7 +18,7 @@ export default function AddTask() {
     console.log({taskName, description, deadline, priority})
     const postTaskData = async ()=>{
       try {
-        const response = await axios.post(`https://taskmanager-bai4.onrender.com/addTask/${user._id}`,{  
+        const response = await axios.post(`http://localhost:7000/addTask/${user._id}`,{  
           taskName,
           description,
           deadline,   
@@ -53,13 +53,13 @@ export default function AddTask() {
         <label className='inputaddtask'>Select Priority:</label><br/>
 
         <input type="radio" id="basic" className="priority" name='priority' value='High' checked={priority === 'High'} onChange={(event) => setPriority(event.target.value)} required/>
-        <label for="High" style={{color: "#afa667f3"}}>High</label>
+        <label for="High" style={{color: "#e67925e0"}}>High</label>
     
         <input type="radio" id="standard" className="priority" name='priority' value="Medium" checked={priority === 'Medium'} onChange={(event) => setPriority(event.target.value)} required/>
-        <label for="Medium" style={{color: "#afa667f3"}}>Medium</label>
+        <label for="Medium" style={{color: "#e67925e0"}}>Medium</label>
     
         <input type="radio" id="premium" className="priority" name='priority' value="Low" checked={priority === 'Low'} onChange={(event) => setPriority(event.target.value)} required/>
-        <label for="Low" style={{color: "#afa667f3"}}>Low</label><br/><br/>
+        <label for="Low" style={{color: "#e67925e0"}}>Low</label><br/><br/>
 
         <input className='addtasksubmit' type="submit" value="Add Task"/>
         <div style={{marginLeft: "-5px"}}><TaskAnimation/></div>

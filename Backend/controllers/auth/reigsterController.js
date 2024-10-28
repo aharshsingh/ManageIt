@@ -5,22 +5,18 @@ const bcrypt = require('bcrypt');
 
 const registerController = {
     async register(req, res, next) {
-        // Validation
-
-        // Creating register schema
+        
         const registerSchema = Joi.object({
             userName: Joi.string().alphanum().min(3).max(30).required(),
             email: Joi.string().email().required(),
             password: Joi.string().pattern(new RegExp('^[a-zA-Z0-9]{4,16}$')).required()
         });
 
-        // Validating the client
         const { error } = registerSchema.validate(req.body);
         if (error) {
             return next(error);
         }
 
-        // If user already exists in the database
         try {
             const exist = await Userdata.exists({ email: req.body.email });
             if (exist) {
@@ -31,10 +27,9 @@ const registerController = {
         }
 
         const { userName, email, password } = req.body;
-        // Hashing password
+
         const hashedPassword = await bcrypt.hash(password, 10);
 
-        // Prepare the model
         const user = new Userdata({
             userName,
             email,

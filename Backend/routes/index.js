@@ -12,4 +12,6 @@ router.post('/editTask/:taskId', taskController.editTask);
 router.get('/showSpecificTask/:taskId', taskController.showSpecificTask);
 router.get('/showTaskByPriority/:userId', taskController.showTaskByPriority);
 router.get('/showCompletedTask/:userId', taskController.showCompletedTask);
+router.patch('/completeTask/:taskId', taskController.completeTask);
+router.delete('/deleteTask/:taskId', taskController.deleteTask);
 module.exports = router;
