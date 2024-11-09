@@ -4,7 +4,9 @@ import '../componentCSS/Signin.css'
 import { Navigate } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
 import { UserContext } from '../context/UserContext';
-
+import taskIcon from '../images/images__1_-removebg-preview.png';
+import gradbg from '../images/Screenshot 2024-11-05 154810.png';
+import TaskAnimation from '../components/TaskAnimation'
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -80,20 +82,28 @@ const Login = () => {
   }
 
   return (
-    <div className="login-container">
-      <h2 >Login</h2>
+    <div style={{display:'flex', columnGap:'0px'}}>
+    <div className="signup-container">
+    <div className='heading'>
+        <TaskAnimation/>
+      </div>
+      <div className='formStyle'>
+      <h2 style={{fontSize:'35px',color:"#26306e",  fontWeight:'100', textAlign:'left', marginTop:'40px'}}>Sign In</h2>
       <form onSubmit={handleSubmit}>
-        <div className="form-group">
+        <div className="form-group" >
           <label >Email</label>
-          <input  type="email" value={email} onChange={(e) => setEmail(e.target.value)} required/>
+          <input  type="email" value={email} onChange={(e) => setEmail(e.target.value)}  required />
         </div>
         <div className="form-group">
           <label >Password</label>
-          <input  type="password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
+          <input  type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
         </div>
-        <button type="submit">Login</button>
+        <button className='signinbtn'  type="submit">Sign In</button>
       </form>
+      </div>
       {message && <p>{message}</p>}
+    </div>
+    <img src={gradbg} alt='iamge' style={{height:'800px', width:'600px', margin: '100px auto', marginLeft:'0px', borderRadius: "0px 15px 15px 0px"}}/>
     </div>
   );
 };

@@ -28,7 +28,7 @@
 
 .userName {
     font-size: 20px;
-    color: #000000;
+    color: #26306e; 
     font-weight: bold;
     margin-left: 20px;
     text-align: center;
@@ -36,12 +36,12 @@
 
 .navBtn {
     width: auto;
-    color: black;
+    color: #26306e; 
     position: relative;
     padding: 10px;
     text-align: center;
 }
-
+/* 
 .navBtn:hover::after {
     content: "";
     display:block;
@@ -52,11 +52,36 @@
     bottom: 0px;
     left: 0px;
     transition: 2s;
-}
+} */
 
 .link {
     text-decoration: none;
 }
+
+/* .navBtn {
+    position: relative;
+    font-size: 15px;
+    margin-top: 20px;
+    color: #26306e;
+    cursor: pointer;
+  } */
+  
+  .navBtn::after {
+    content: "";
+    position: absolute;
+    bottom: 5px; 
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background-color: #e6b422;
+    transition: width 0.3s ease, left 0.3s ease;
+  }
+  
+  .navBtn:hover::after {
+    width: 100%;
+    left: 0%;
+  }
+  
 
 @media (max-width: 768px) {
     .outer-container1 {

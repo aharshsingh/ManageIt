@@ -1,9 +1,10 @@
 * {
   box-sizing: border-box;
 }
+
 .heading{
-  display: flex;
-  flex-wrap: nowrap;
+  margin-left: -100px;
+  margin-top: -50px;
 }
 .TaskIcon{
   height: 50px;
@@ -16,6 +17,7 @@
   margin: 100px auto;
   margin-right: 0px;
   padding: 30px;
+  border: 1px solid rgb(185, 185, 185);
   border-radius: 15px 0px 0px 15px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -27,7 +29,8 @@
 }
 
 .formStyle{
-  padding: 40px;
+  padding: 0px 40px 40px 40px ;
+  margin-top: -40px;
 }
 .form-group {
   margin-bottom: 15px;
@@ -35,33 +38,35 @@
 
 .form-group label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: -2px;
   font-weight: bold;
-  color: rgb(58, 60, 75); 
+  color: #26306e; 
 }
 
 .form-group input {
   width: 100%;
   padding: 10px;
-  border: 1px solid #5521B4;
-  border-radius: 3px;
+  border: none; /* Remove all borders */
+  border-bottom: 2px solid #5521B4; /* Add bottom border only */
   box-sizing: border-box;
-  color: black; 
+  color: black;
+  outline: none; /* Remove default focus outline */
 }
 
-button {
+
+.signupbtn{
   width: 100%;
   padding: 10px;
   border: none;
   border-radius: 3px;
-  background-color: #5521B4;
+  background-color: #653cb1;
   color: white;
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
-button:hover {
+.signupbtn:hover {
   background-color: #4b13b3;
 }
 
@@ -70,9 +75,30 @@ p {
   color: rgb(0, 0, 0); 
   font-weight: bold;
 }
-.alreadyLogin:hover{
-  text-decoration: underline;
+.alreadyLogin {
+  position: relative;
+  font-size: 15px;
+  margin-top: 20px;
+  color: #26306e;
+  cursor: pointer;
 }
+
+.alreadyLogin::after {
+  content: "";
+  position: absolute;
+  bottom: -4px; 
+  left: 50%;
+  width: 0;
+  height: 1px;
+  background-color: #26306e;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.alreadyLogin:hover::after {
+  width: 44%;
+  left: 28%;
+}
+
 .login{
   text-decoration: none;
 }

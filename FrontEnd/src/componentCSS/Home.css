@@ -1,42 +1,67 @@
 * {
     box-sizing: border-box;
 }
-
 .filler {
     margin-top: 250px;
     margin-left: 80px;
     font-size: 30px;
 }
-
+.buttonContainer{
+    display: flex;
+    flex-wrap: nowrap;
+    column-gap: 2px;
+}
+.linkdiv{
+    width: 700px;
+    height: 150px;
+    text-decoration: none;
+    margin-top: 150px;
+}
 .addTaskBtnPos {
     margin-top: 50px;
     margin-left: 410px;
     cursor: pointer;
 }
-
-.HomeButton {
-    width: 200px;
+.arrowbutton{
+    margin-right: 150px;
     height: 60px;
-    background-color: #e67925e0;
-    border-radius: 50px;
-    border: 0px;
+    margin-top: 200px;
+    border-radius: 5px;
+    border: 1px solid #4b13b3;
+    cursor: pointer;
 }
-
-.HomeButton:hover {
-    background-color: #287eb8;
+.HomeButton {
+    width: 600px;
+    height: 60px;
+    border-radius: 5px;
+    border: 1px solid #4b13b3;
+    margin-top: 200px;
+    background-color: white;
+    cursor: pointer;
 }
+.paraDiv{
+    width: 550px;
+    height: 60px;
+    border-radius: 5px;
+    border: 1px solid #4b13b3;
+    margin-top: 200px;
+    background-color: white;
+}
+/* .HomeButton:hover {
+    background-color: #4b13b3;
+} */
 
 .para3 {
-    color: #ebebeb;
+    margin-top: 15px;
+    color: #4b13b3;
     font-size: 20px;
     font-weight: 600;
-    margin-top: 5px;
 }
 
 .homeContainer {
-    margin-top: 150px;
+    margin-top: 50px;
     display: flex;
-    column-gap: 200px;
+    column-gap: 0px;
     flex-wrap: wrap; 
     justify-content: center; 
 }

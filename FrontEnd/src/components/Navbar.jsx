@@ -5,12 +5,13 @@ import { UserContext } from '../context/UserContext';
 
 export default function Navbar() {
   const { user } = useContext(UserContext);
-
+  const userName = user.userName 
+  ? user.userName.charAt(0).toUpperCase() + user.userName.slice(1) 
+  : '';
   return (
     <div className='outer-container1'>
       <div className='inner-container1'>
-        {/* <img className='profileImg' src={downimg} alt="profileImage" /> */}
-        <p className='userName'>Hi, {user.userName}</p>
+        <p className='userName'>Hi, {userName}</p>
       </div>
       <div className='inner-container1'>
         <Link className='link' to="/Dashboard">

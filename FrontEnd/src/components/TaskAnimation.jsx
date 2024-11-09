@@ -1,10 +1,10 @@
 import React from 'react';
 import Lottie from 'lottie-react';
-import animationData from '../images/Animation - 1721737562833.json';
+import animationData from '../images/Animation - 1730970107357.json';
 
 const LottieAnimation = () => {
   return (
-    <div style={{ width: 400, height: 220 }}>
+    <div style={{ width: 300, height: 200 }}>
       <Lottie 
         animationData={animationData} 
         loop={true} 

@@ -1,9 +1,20 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
+import React from 'react';
+import {Link} from 'react-router-dom';
+import '../componentCSS/Home.css';
+import arrow from '../images/arrow-right-solid (1).svg'
 export default function AddTaskBtn() {
   return (
-    <div>
-      <Link className='link' to='/addtask'><button className='HomeButton'><p className='para3'>Add Task</p></button></Link>
-    </div>
+    <>
+      <Link className='linkdiv' to='/addtask'>
+        <div className='buttonContainer'>
+          <div className='paraDiv'>
+            <p className='para3'>Effortlessly organize tasks and prioritize your day</p>
+          </div>
+          <button className = 'arrowbutton'>
+            <img style={{height:'25px', width:'25px'}} src={arrow} alt='icon' />
+          </button>
+        </div>
+      </Link>
+    </>
   )
 }

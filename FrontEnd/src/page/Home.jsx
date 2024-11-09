@@ -9,11 +9,8 @@ export default function Home() {
     <>
       <Navbar/>
       <div className='homeContainer'>
-        <div>
-          <p className='filler'>"Effortlessly organize tasks, prioritize your day, <br/>and boost productivity with our intuitive task manager app."</p>
-          <div className='addTaskBtnPos'><AddTaskBtn/></div>
-          </div>
-      <LottieAnimation/>
+        <LottieAnimation/>
+        <AddTaskBtn/>
       </div>
     </>
   )
