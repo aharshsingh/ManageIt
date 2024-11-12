@@ -52,3 +52,41 @@
 .img1:hover {
   transform: scale(1.1); 
 }
+
+.bellIcon{
+  width: 20px;
+  height: 20px;
+}
+.reminderDiv{
+  cursor:pointer;
+  display: flex;
+  flex-wrap: nowrap;
+  column-gap: 5px;
+  transition: 0.5s;
+  margin-top: 10px;
+}
+.reminderDiv:hover{
+  transform:scale(1.02);
+}
+
+input[type="date"], input[type="time"] {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+  background-color: #fff;
+  width: 150px;  /* Set width */
+}
+
+/* Add focus effect */
+input[type="date"]:focus, input[type="time"]:focus {
+  border-color: #007bff; /* Change border color on focus */
+  outline: none;
+}
+
+/* Add a custom icon or label if needed */
+input[type="date"]::before, input[type="time"]::before {
+  content: '📅'; /* Example of adding an icon before the date/time input */
+  margin-right: 5px;
+}

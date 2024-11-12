@@ -36,6 +36,7 @@ export default function AddTask() {
   };
   return (
     <>
+    <div className='formContainer'>
     <Navbar/>
     <form className='addTaskForm'  onSubmit={handleSubmit}>
         <div className='fieldsetaddtask'>
@@ -65,6 +66,7 @@ export default function AddTask() {
         <div style={{marginLeft: "-5px"}}><TaskAnimation/></div>
         </div>
     </form>
+    </div>
     </>
   )
 }

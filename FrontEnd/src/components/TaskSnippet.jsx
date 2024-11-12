@@ -6,13 +6,32 @@ import '../componentCSS/TaskSnippet.css';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { UserContext } from '../context/UserContext'; 
+import bellIcon from '../images/bell-solid (1).svg';
 
 export default function TaskSnippet({ task, onTaskUpdate }) {
-  const [isDescriptionVisible, setDescriptionVisible] = useState(false);
+  const[toggleReminder, setToggleReminder] = useState(false);
+  const[reminderDate, setReminderDate] = useState('');
+  const[reminderTime, setReminderTime] = useState('');
 
-  const toggleDescription = () => {
-    setDescriptionVisible(!isDescriptionVisible);
+  const handleDateChange = (event) => {
+    setReminderDate(event.target.value);
   };
+
+  const handleTimeChange = (event) => {
+    setReminderTime(event.target.value);
+  };
+
+  const handleClearReminder = () => {
+    setReminderDate('');
+    setReminderTime(''); 
+  };
+
+  const handleClick = () =>{
+    if(toggleReminder === false)
+      setToggleReminder(true);
+    else  
+      setToggleReminder(false);
+  }
 
   const handleCompleteTask = async () => {
     try {
@@ -62,12 +81,27 @@ export default function TaskSnippet({ task, onTaskUpdate }) {
           <img className='img1' src={deleteimg} alt="Delete" onClick={handleDeleteTask}/>
         </div>
       </div>
-      <div className={`description ${isDescriptionVisible ? 'expanded' : ''}`}>
+      <div className='description'>
         {task.description}
       </div>
-      <div className='toggle-description' onClick={toggleDescription}>
-        {isDescriptionVisible ? 'Show Less' : 'Show More'}
+      <div className='reminderDiv' onClick={handleClick}>
+        <p style={{fontSize:'15px', fontWeight:'500'}}>Set Remainder</p> <img className='bellIcon' src={bellIcon} alt='bellIcon'/>
       </div>
+      {toggleReminder && (
+          <div style={{marginTop: '16px'}}>
+      <input 
+        type="date" 
+        value={reminderDate}
+        onChange={handleDateChange}
+      />
+      <input 
+        type="time" 
+        value={reminderTime}
+        onChange={handleTimeChange}
+      />
+      <button onClick={handleClearReminder}>Clear Reminder</button>
+      </div>
+        )}
     </div>
   );
 }

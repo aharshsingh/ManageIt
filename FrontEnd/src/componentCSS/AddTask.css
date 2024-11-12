@@ -1,7 +1,15 @@
 * {
     font-size: 20px;
   }
-  
+  .formContainer{
+    background-image: url('../images/3d-illustration-pen-putting-blue-ticks-paper.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    /* height: 100vh; */
+    display: flex;
+    flex-direction: column;
+  }
   .addTaskForm {
     width: 100%;
     max-width: 1000px;
@@ -9,9 +17,10 @@
     margin: 80px auto;
     padding: 20px;
   }
-  
+  .taskname{
+    margin-top: 40px;
+  }
   .taskname, .Description, .deadline {
-    margin-top: 0px;
     border: none; 
     margin-left: 300px;
     background-color: #e67925e0;
@@ -64,8 +73,13 @@
   }
   
   .fieldsetaddtask {
-    border: none;
-    box-shadow: 4px 4px 4px 4px rgba(90, 90, 90, 0.25);
+    margin-top: -40px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+    backdrop-filter: blur(10px); /* Adds a blur to the background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+    border: 1px solid rgba(155, 98, 98, 0.3); /* Light border for outline */
     padding: 20px;
   }
   

@@ -1,42 +1,26 @@
-* {
+/* * {
     box-sizing: border-box;
-}
-.filler {
+} */
+/* .filler {
     margin-top: 250px;
     margin-left: 80px;
     font-size: 30px;
-}
-.buttonContainer{
+} */
+.linkdiv{
     display: flex;
     flex-wrap: nowrap;
     column-gap: 2px;
-}
-.linkdiv{
-    width: 700px;
-    height: 150px;
+    height: 60px;
     text-decoration: none;
-    margin-top: 150px;
-}
-.addTaskBtnPos {
-    margin-top: 50px;
-    margin-left: 410px;
-    cursor: pointer;
+    margin-top: 200px;
+    width: 700px;
+    margin-left: 300px;
 }
 .arrowbutton{
     margin-right: 150px;
     height: 60px;
-    margin-top: 200px;
     border-radius: 5px;
     border: 1px solid #4b13b3;
-    cursor: pointer;
-}
-.HomeButton {
-    width: 600px;
-    height: 60px;
-    border-radius: 5px;
-    border: 1px solid #4b13b3;
-    margin-top: 200px;
-    background-color: white;
     cursor: pointer;
 }
 .paraDiv{
@@ -44,20 +28,14 @@
     height: 60px;
     border-radius: 5px;
     border: 1px solid #4b13b3;
-    margin-top: 200px;
     background-color: white;
 }
-/* .HomeButton:hover {
-    background-color: #4b13b3;
-} */
-
 .para3 {
     margin-top: 15px;
     color: #4b13b3;
     font-size: 20px;
     font-weight: 600;
 }
-
 .homeContainer {
     margin-top: 50px;
     display: flex;
@@ -65,8 +43,21 @@
     flex-wrap: wrap; 
     justify-content: center; 
 }
-
-
+.homeQuote{
+    margin-top: 50px;
+    text-align: right;
+    font-size: 100px;
+    margin-right: 100px;
+    color:#4b13b3
+}
+.homePara{
+    font-weight: 200;
+    text-align: right;
+    margin-right: 100px;
+    margin-top: 20px;
+    color: #4b13b3;
+    opacity: 0.7;
+}
 @media (max-width: 768px) {
     .filler {
         margin-top: 150px;

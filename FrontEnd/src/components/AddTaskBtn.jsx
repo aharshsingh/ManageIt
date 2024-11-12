@@ -6,14 +6,12 @@ export default function AddTaskBtn() {
   return (
     <>
       <Link className='linkdiv' to='/addtask'>
-        <div className='buttonContainer'>
           <div className='paraDiv'>
             <p className='para3'>Effortlessly organize tasks and prioritize your day</p>
           </div>
           <button className = 'arrowbutton'>
             <img style={{height:'25px', width:'25px'}} src={arrow} alt='icon' />
           </button>
-        </div>
       </Link>
     </>
   )

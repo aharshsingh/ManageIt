@@ -10,7 +10,11 @@ export default function Home() {
       <Navbar/>
       <div className='homeContainer'>
         <LottieAnimation/>
-        <AddTaskBtn/>
+        <div>
+          <p className='homeQuote'>Stay Organised<br/>Achieve More</p>
+          <p className='homePara'>Receive reminders and stay up-to-date on upcoming tasks and deadlines</p>
+          <AddTaskBtn/>
+        </div>
       </div>
     </>
   )
