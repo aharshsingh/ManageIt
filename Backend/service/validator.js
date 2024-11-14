@@ -7,4 +7,10 @@ const taskValidationSchema = Joi.object({
     priority: Joi.string().required()
 });
 
-module.exports = { taskValidationSchema };
+const reminderValidationSchema = Joi.object({
+    taskId: Joi.string().required(),
+    reminderDateTime: Joi.date().required(),
+    message: Joi.string(),
+    email: Joi.string().email().required()
+})
+module.exports = { taskValidationSchema, reminderValidationSchema };

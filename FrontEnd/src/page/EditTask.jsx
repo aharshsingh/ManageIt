@@ -20,7 +20,7 @@ export default function AddTask() {
     console.log({taskName, description, deadline, priority})
     const postTaskData = async ()=>{
       try {
-        const response = await axios.post(`http://localhost:7000/editTask/${user._id}`,{  
+        const response = await axios.patch(`http://localhost:7000/editTask/${taskId}`,{  
           taskName,
           description,
           deadline,   
@@ -61,6 +61,7 @@ export default function AddTask() {
   },[])
   return (
     <>
+    <div className='formContainer'>
     <Navbar/>
     <form className='addTaskForm'  onSubmit={handleSubmit}>
         <fieldset className='fieldsetaddtask'>
@@ -89,6 +90,7 @@ export default function AddTask() {
         <input className='addtasksubmit' type="submit" value="Update"/>
         </fieldset>
     </form>
+    </div>
     </>
   )
 }

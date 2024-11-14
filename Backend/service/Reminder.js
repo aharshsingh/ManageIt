@@ -23,3 +23,5 @@ const sendReminder = async (task) => {
     console.error('Error sending reminder email:', error);
   }
 };
+
+exports.module = sendReminder;

@@ -33,7 +33,7 @@ const taskController = {
     const formattedDate = dayjs(date).format('YYYY-MM-DD');
 
     try {
-        const tasks = await Task.find({ userId: userId });
+        const tasks = await Task.find({ userId: userId, iscompleted: false });
         const result = tasks.filter(task => {
             const deadline = dayjs(task.deadline).format('YYYY-MM-DD');
             return formattedDate === deadline;
@@ -49,12 +49,11 @@ const taskController = {
     async editTask(req, res, next) {
         let formattedDate;
         const id = req.params.taskId;
-        const { taskName, description, date, priority, iscompleted } = req.body;
+        const { taskName, description, deadline, priority, iscompleted } = req.body;
     
-        if (date !== undefined) {
-            formattedDate = dayjs(date).format('YYYY-MM-DD');
+        if (deadline !== undefined) {
+            formattedDate = dayjs(deadline).format('YYYY-MM-DD');
         }
-    
         const update = {};
         if (taskName !== undefined) update.taskName = taskName;
         if (description !== undefined) update.description = description;

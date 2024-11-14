@@ -85,7 +85,7 @@ export default function Dashboard() {
               <TaskSnippet key={task._id} task={task} />
             ))
           ) : (
-            <p className="no-tasks-message">No completed tasks to show. Please add some tasks!</p> // Message displayed when no completed tasks are found
+            <p className="no-tasks-message">No completed tasks to show. Please add some tasks!</p> 
           )}
         </div>
       </div>
