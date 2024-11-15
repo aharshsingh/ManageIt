@@ -16,7 +16,13 @@ export default function TaskSnippet({ task, onTaskUpdate }) {
   const [message, setMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [overDue, setOverDue] = useState(false);
+  const token = localStorage.getItem('token');
 
+  const getAuthHeaders = () => ({
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  });
   useEffect(() => {
     if (task.iscompleted) {
       setOverDue(false);
@@ -67,7 +73,7 @@ export default function TaskSnippet({ task, onTaskUpdate }) {
         reminderDateTime,
         message,
         email
-      });
+      }, getAuthHeaders());
       if(response.status === 200){
         alert("Reminder set!")
       }   
@@ -80,7 +86,8 @@ export default function TaskSnippet({ task, onTaskUpdate }) {
 
   const handleCompleteTask = async () => {
     try {
-      const response = await axios.patch(`http://localhost:7000/completeTask/${task._id}`);
+      console.log(token);
+      const response = await axios.patch(`http://localhost:7000/completeTask/${task._id}`,{}, getAuthHeaders());
       if (response.status === 200) {
         alert("Task completed successfully!");
         window.location.reload();
@@ -96,7 +103,7 @@ export default function TaskSnippet({ task, onTaskUpdate }) {
     if (!confirmDelete) return;
 
     try {
-      const response = await axios.delete(`http://localhost:7000/deleteTask/${task._id}`);
+      const response = await axios.delete(`http://localhost:7000/deleteTask/${task._id}`, getAuthHeaders());
       if (response.status === 200) {
         alert('Task deleted successfully!');
         window.location.reload();
@@ -117,15 +124,19 @@ export default function TaskSnippet({ task, onTaskUpdate }) {
       <div className='task-header'>
         <div className='task-name'>{task.taskName}</div>
         <div className='action-icons'>
-          <img 
-            className='img1' 
-            src={completedimg} 
-            alt="Complete" 
-            onClick={handleCompleteTask} 
-          />
-          <Link to={`/editTask/${task._id}`}>
-            <img className='img1' src={updateimg} alt="Edit" />
-          </Link>
+        {!task.iscompleted && (
+      <>
+        <img
+          className="img1"
+          src={completedimg}
+          alt="Complete"
+          onClick={handleCompleteTask}
+        />
+        <Link to={`/editTask/${task._id}`}>
+          <img className="img1" src={updateimg} alt="Edit" />
+        </Link>
+      </>
+    )}
           <img className='img1' src={deleteimg} alt="Delete" onClick={handleDeleteTask} />
         </div>
       </div>
@@ -140,6 +151,7 @@ export default function TaskSnippet({ task, onTaskUpdate }) {
         <div>
           <div style={{ marginTop: '16px' }}>
             <input 
+              className='dateDiv'
               type="date" 
               value={reminderDate}
               onChange={handleDateChange}

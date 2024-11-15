@@ -2,11 +2,12 @@ import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import '../componentCSS/Signin.css'  
 import { Navigate } from 'react-router-dom';
-import { jwtDecode } from 'jwt-decode';
+// import { jwtDecode } from 'jwt-decode';
 import { UserContext } from '../context/UserContext';
 import taskIcon from '../images/images__1_-removebg-preview.png';
 import gradbg from '../images/Screenshot 2024-11-05 154810.png';
-import TaskAnimation from '../components/TaskAnimation'
+import TaskAnimation from '../components/TaskAnimation';
+
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -14,24 +15,6 @@ const Login = () => {
   const [redirect, setRedirect] = useState(false);
   const [userId, setUserId] = useState(null);
   const {user, setUser} = useContext(UserContext);
-
-  const verifyToken = async (token) => {
-    try {
-      const response = await axios.post('http://localhost:7000/verify', { jwtToken: token });
-      
-      if (response.status === 200) {
-        setMessage('Login successful!');
-        setRedirect(true);
-      } 
-      
-      else {
-        setMessage('Login failed. Please try again.');
-      }
-
-    } catch (error) {
-      setMessage('Token verification failed. Please try again.');
-    }
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -45,20 +28,24 @@ const Login = () => {
       if (response.status === 200) {
         const { token } = response.data;
         localStorage.setItem('token', token);
-        await verifyToken(token);
-        const decodedToken = jwtDecode(token);
-        const { _id } = decodedToken;
-        setUserId(_id);
+        // const decodedToken = jwtDecode(token);
+        // const { _id } = decodedToken;
+        // setUserId(_id);
 
         const userUpdate = async () => {
           try {
-            const userInfoResponse = await axios.get(`http://localhost:7000/userInfo/${_id}`);
-            const { userName, email } = userInfoResponse.data;
+            const token = localStorage.getItem('token');
+            const getAuthHeaders = () => ({
+              headers: {
+              Authorization: `Bearer ${token}`
+            }
+            });
+            const userInfoResponse = await axios.get(`http://localhost:7000/userInfo`,getAuthHeaders());
+            const { userName, email, _id } = userInfoResponse.data;
             setUser({ userName, email, _id });
             localStorage.setItem('userName', userName);
             localStorage.setItem('email', email);
             localStorage.setItem('_id', _id);
-            console.log(user)
             setRedirect(true);
           } catch (error) {
             console.log(error);

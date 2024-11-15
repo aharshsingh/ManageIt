@@ -17,7 +17,13 @@ export default function Dashboard() {
   const { user } = useContext(UserContext);
   const [check, setCheck] = useState(true);
   const [loading, setLoading] = useState(false);
+  const token = localStorage.getItem('token');
 
+  const getAuthHeaders = () => ({
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  });
   const handleDateChange = (newDate) => {
     setSelectedDate(newDate);
     setCheck(false);
@@ -30,7 +36,7 @@ export default function Dashboard() {
   const fetchTaskByPriority = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(`http://localhost:7000/showTaskByPriority/${user._id}`);
+      const response = await axios.get(`http://localhost:7000/showTaskByPriority/${user._id}`,getAuthHeaders());
       if (!response.data || !Array.isArray(response.data)) {
         setMessage('Error in fetching data');
       } else {
@@ -48,7 +54,7 @@ export default function Dashboard() {
     const isoDate = date.toISOString();
     setLoading(true);
     try {
-      const response = await axios.post(`http://localhost:7000/showTask/${user._id}`, { date: isoDate });
+      const response = await axios.post(`http://localhost:7000/showTask/${user._id}`, { date: isoDate }, getAuthHeaders());
       if (!response.data || !Array.isArray(response.data)) {
         setMessage('Error in fetching data');
       } else {

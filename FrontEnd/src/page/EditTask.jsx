@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar'
 import '../componentCSS/AddTask.css'
 import axios from 'axios'
 import { UserContext } from '../context/UserContext';
+import TaskAnimation from '../components/TaskAnimation'
 
 export default function AddTask() {
   const [taskName, setTaskName] = useState('');
@@ -14,7 +15,13 @@ export default function AddTask() {
   const {user} = useContext(UserContext);
   const navigate = useNavigate(); 
   const { taskId } = useParams();
+  const token = localStorage.getItem('token');
 
+  const getAuthHeaders = () => ({
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  });
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log({taskName, description, deadline, priority})
@@ -25,7 +32,7 @@ export default function AddTask() {
           description,
           deadline,   
           priority
-        });
+        }, getAuthHeaders());
         if(response.status === 200){
           alert("Task updated successfully!")
           navigate('/dashboard');
@@ -41,9 +48,8 @@ export default function AddTask() {
     const fetchTask = async ()=>{
       try {
         console.log(taskId);
-        const response = await axios.get(`http://localhost:7000/showSpecificTask/${taskId}`)
+        const response = await axios.get(`http://localhost:7000/showSpecificTask/${taskId}`,getAuthHeaders())
         if (response && response.data) {
-          //console.log(response.data)
           setTaskName(response.data.taskName);
           setDescription(response.data.description);
           setDeadline(response.data.deadline);
@@ -65,7 +71,7 @@ export default function AddTask() {
     <Navbar/>
     <form className='addTaskForm'  onSubmit={handleSubmit}>
         <fieldset className='fieldsetaddtask'>
-        <legend>Add Task</legend>
+        <legend>Edit Task</legend>
         
         <label className='inputaddtask' for="taskname">Task Name:</label>
         <input type="text" id="name" className="taskname" value = {taskName} onChange={(event) => setTaskName(event.target.value)}  required/><br/><br/>
@@ -88,6 +94,7 @@ export default function AddTask() {
         <label for="Low" style={{color: "#e67925e0"}}>Low</label><br/><br/>
 
         <input className='addtasksubmit' type="submit" value="Update"/>
+        <div style={{marginLeft: "-70px", marginTop: '-25px'}}><TaskAnimation/></div>
         </fieldset>
     </form>
     </div>

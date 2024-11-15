@@ -6,53 +6,54 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    /* height: 100vh; */
+    height: 100vh;
     display: flex;
     flex-direction: column;
   }
   .addTaskForm {
     width: 100%;
-    max-width: 1000px;
+    max-width: 600px;
     height: auto;
     margin: 80px auto;
     padding: 20px;
   }
-  .taskname{
-    margin-top: 40px;
-  }
+ 
   .taskname, .Description, .deadline {
-    border: none; 
-    margin-left: 300px;
-    background-color: #e67925e0;
+    margin-top: 10px;
+    margin-left: 100px;
+    background-color: #ffffff;
     height: 45px;
     width: 350px;
     padding-left: 25px;
     border-radius: 5px;
+    border: 2px solid #4b13b3; /* Explicitly set border color and width */
     outline: none;
-    color: #fffffff3;
+    color: #000000f3;
     box-shadow: 0px 4px 4px 0px rgba(131, 131, 131, 0.25);
-    transition: scale 1s;
-  }
+    transition: scale 1s ease; /* Updated for smoother effect */
+}
+
   
-  .taskname::placeholder, .Description::placeholder {
-    color: #fffffff3;
+  .taskname::placeholder, .Description::placeholder, .deadline {
+    color: #616161f3;
   }
   
   .taskname:hover, .Description:hover, .deadline:hover {
-    scale: 1.09;
+    scale: 1.02;
+    
   }
   
   .inputaddtask {
     display: block;
     color: #000000f3;
-    margin-left: 300px;
+    margin-left: 100px;
   }
   
   .priority {
-    margin-left: 82px;
+    margin-left: 75px;
   }
   #basic{
-    margin-left: 300px;
+    margin-left: 100px;
   }
   
   .priority input {
@@ -64,11 +65,11 @@
     width: fit-content;
     margin: 20px auto;
     padding: 10px 50px;
-    background-color: #e67925e0;
+    background-color: #4b13b3;
     border: none;
     cursor: pointer;
     color: #fffffff3;
-    box-shadow: 0px 4px 4px 0px rgba(131, 131, 131, 0.25);
+    box-shadow: 0px 4px 4px 0px rgba(58, 58, 58, 0.25);
     border-radius: 5px;
   }
   
@@ -76,8 +77,8 @@
     margin-top: -40px;
     padding: 20px;
     border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
-    backdrop-filter: blur(10px); /* Adds a blur to the background */
+    background-color: rgba(255, 255, 255, 0.137); /* Semi-transparent white */
+    backdrop-filter: blur(40px); /* Adds a blur to the background */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
     border: 1px solid rgba(155, 98, 98, 0.3); /* Light border for outline */
     padding: 20px;

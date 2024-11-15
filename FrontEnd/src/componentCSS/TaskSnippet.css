@@ -64,7 +64,7 @@
   transform:scale(1.02);
 }
 
-input[type="date"], input[type="time"] {
+.dateDiv, input[type="time"] {
   margin-right: 25px;
   padding: 4px;
   font-size: 15px;

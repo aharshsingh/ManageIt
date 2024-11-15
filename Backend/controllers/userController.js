@@ -4,11 +4,8 @@ const Userdata = require('../models/user');
 const userController = {
     async userInfo(req,res,next) {
         let doc;
-        const userId = req.params.userId;
-        console.log(userId);
         try {
-            doc = await Userdata.findOne({_id : userId});
-            console.log(doc);
+            doc = await Userdata.findOne({_id : req.user._id});
             if(!doc){
                 return next(CustomErrorHandler.notFound('User not Found!'));
             }

@@ -13,4 +13,10 @@ const reminderValidationSchema = Joi.object({
     message: Joi.string(),
     email: Joi.string().email().required()
 })
-module.exports = { taskValidationSchema, reminderValidationSchema };
+
+const loginSchema = Joi.object({
+    email: Joi.string().email().required(),
+    password: Joi.string().pattern(new RegExp('^[a-zA-Z0-9]{4,16}$')).required()
+});
+
+module.exports = { taskValidationSchema, reminderValidationSchema, loginSchema };
