@@ -1,23 +1,44 @@
 const nodemailer = require('nodemailer');
+const { APP_PASS, APP_EMAIL  } = require('../config/index');
+const Task = require('../models/task');
 
 const sendTimeReminder = async (reminder) => {
+  let task; 
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: process.env.EMAIL_USER, // Your email address
-      pass: process.env.EMAIL_PASSWORD, // Your email password
+      user: APP_EMAIL, 
+      pass: APP_PASS
     },
   });
 
+  try {
+    task = await Task.findOne({ _id : reminder.taskId})
+  } catch (error) {
+    console.log(error)
+  }
+
   const mailOptions = {
-    from: process.env.EMAIL_USER,
-    to: reminder.userId,
+    from: APP_EMAIL,
+    to: reminder.email,
     subject: `Reminder for Task: "${task.taskName}"`,
-    text: `Hello! This is a reminder for your task "${task.taskName}", which is due on ${task.deadline.toDateString()}.
-    Message: "${reminder.message}"
-    Please ensure you complete it on time. Best of luck!`,
+    text: `
+Hello,
+
+This is a friendly reminder about your upcoming task:
+
+Task Name: "${task.taskName}"  
+Deadline: ${task.deadline.toDateString()}  
+
+Message:  
+"${reminder.message}"  
+
+Please ensure you complete it on time. Wishing you the best of luck!
+
+Best regards,  
+Task Manager Team
+`,
   };
-  
   
   try {
     await transporter.sendMail(mailOptions);
@@ -27,4 +48,4 @@ const sendTimeReminder = async (reminder) => {
   }
 };
 
-exports.module = sendTimeReminder;
+module.exports = sendTimeReminder;

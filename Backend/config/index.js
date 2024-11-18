@@ -7,5 +7,6 @@ module.exports = {
     JWT_SECRET : process.env.JWT_SECRET,
     DB_URL : process.env.DB_URL,
     EMAIL_USER : process.env.EMAIL_USER,
-    
+    APP_PASS : process.env.APP_PASS,
+    APP_EMAIL : process.env.APP_EMAIL
 }

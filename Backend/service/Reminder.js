@@ -1,19 +1,35 @@
 const nodemailer = require('nodemailer');
-
+const { APP_PASS } = require('../config/index');
+const { APP_EMAIL } = require('../config/index');
 const sendReminder = async (task) => {
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: process.env.EMAIL_USER, // Your email address
-      pass: process.env.EMAIL_PASSWORD, // Your email password
+      user: APP_EMAIL, 
+      pass: APP_PASS, 
     },
   });
-
+ let res;
+  try {
+    res = await User.findOne({ _id : task.userId });
+  } catch (error) {
+    console.log(error);
+  }
   const mailOptions = {
-    from: process.env.EMAIL_USER,
-    to: task.userId,
+    from: APP_EMAIL,
+    to: res.email,
     subject: `Reminder: Task "${task.taskName}" Due Tomorrow`,
-    text: `Hello! This is a reminder that the task "${task.taskName}" is due tomorrow (${task.deadline.toDateString()}). Please make sure it's completed by then.`,
+    text:  `
+    Hello,
+    
+    This is a reminder that your task "${task.taskName}" is due tomorrow:  
+    Deadline: ${task.deadline.toDateString()}  
+    
+    Please ensure it is completed by the deadline.
+    
+    Best regards,  
+    Task Manager Team
+    `
   };
   
   try {

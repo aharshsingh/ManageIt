@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom'; 
 import '../componentCSS/Nav.css';
 import { UserContext } from '../context/UserContext';
-
+import NavDrawer from '../components/NavDrawer';
 export default function Navbar() {
   const { user } = useContext(UserContext);
   const userName = user.userName 
@@ -10,7 +10,10 @@ export default function Navbar() {
   : '';
   return (
     <div className='outer-container1'>
-      <div className='inner-container1'>
+      <div className='inner-container'>
+      <div className='burger-img'>
+      < NavDrawer/>
+     </div>
         <p className='userName'>Hi, {userName}</p>
       </div>
       <div className='inner-container1'>
