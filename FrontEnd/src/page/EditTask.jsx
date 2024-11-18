@@ -27,7 +27,7 @@ export default function AddTask() {
     console.log({taskName, description, deadline, priority})
     const postTaskData = async ()=>{
       try {
-        const response = await axios.patch(`http://localhost:7000/editTask/${taskId}`,{  
+        const response = await axios.patch(`https://taskmanager-rhn5.onrender.com/editTask/${taskId}`,{  
           taskName,
           description,
           deadline,   
@@ -48,7 +48,7 @@ export default function AddTask() {
     const fetchTask = async ()=>{
       try {
         console.log(taskId);
-        const response = await axios.get(`http://localhost:7000/showSpecificTask/${taskId}`,getAuthHeaders())
+        const response = await axios.get(`https://taskmanager-rhn5.onrender.com/showSpecificTask/${taskId}`,getAuthHeaders())
         if (response && response.data) {
           setTaskName(response.data.taskName);
           setDescription(response.data.description);

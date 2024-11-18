@@ -16,7 +16,13 @@ const reminderValidationSchema = Joi.object({
 
 const loginSchema = Joi.object({
     email: Joi.string().email().required(),
-    password: Joi.string().pattern(new RegExp('^[a-zA-Z0-9]{4,16}$')).required()
+    password: Joi.string().required()
 });
 
-module.exports = { taskValidationSchema, reminderValidationSchema, loginSchema };
+const registerSchema = Joi.object({
+    userName: Joi.string().max(30).required(),
+    email: Joi.string().email().required(),
+    password: Joi.string().required()
+});
+
+module.exports = { taskValidationSchema, reminderValidationSchema, loginSchema, registerSchema };

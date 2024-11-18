@@ -20,7 +20,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:7000/login', {
+      const response = await axios.post('https://taskmanager-rhn5.onrender.com/login', {
         email,
         password,
       });
@@ -40,7 +40,7 @@ const Login = () => {
               Authorization: `Bearer ${token}`
             }
             });
-            const userInfoResponse = await axios.get(`http://localhost:7000/userInfo`,getAuthHeaders());
+            const userInfoResponse = await axios.get(`https://taskmanager-rhn5.onrender.com/userInfo`,getAuthHeaders());
             const { userName, email, _id } = userInfoResponse.data;
             setUser({ userName, email, _id });
             localStorage.setItem('userName', userName);
@@ -90,7 +90,9 @@ const Login = () => {
       </div>
       {message && <p>{message}</p>}
     </div>
-    <img src={gradbg} alt='iamge' style={{height:'800px', width:'600px', margin: '100px auto', marginLeft:'0px', borderRadius: "0px 15px 15px 0px"}}/>
+    <div className='signinImage' style={{margin: '100px auto', marginLeft:'0px'}}>
+    <img src={gradbg} alt='iamge' style={{height:'800px', width:'600px', borderRadius: "0px 15px 15px 0px"}}/>
+    </div>
     </div>
   );
 };

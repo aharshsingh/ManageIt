@@ -68,7 +68,7 @@ export default function TaskSnippet({ task, onTaskUpdate }) {
         setErrorMessage("The slected date for reminder is passing the deadline!")
       }
       else{
-      const response = await axios.post(`http://localhost:7000/setReminder`,{
+      const response = await axios.post(`https://taskmanager-rhn5.onrender.com/setReminder`,{
         taskId,
         reminderDateTime,
         message,
@@ -87,7 +87,7 @@ export default function TaskSnippet({ task, onTaskUpdate }) {
   const handleCompleteTask = async () => {
     try {
       console.log(token);
-      const response = await axios.patch(`http://localhost:7000/completeTask/${task._id}`,{}, getAuthHeaders());
+      const response = await axios.patch(`https://taskmanager-rhn5.onrender.com/completeTask/${task._id}`,{}, getAuthHeaders());
       if (response.status === 200) {
         alert("Task completed successfully!");
         window.location.reload();
@@ -103,7 +103,7 @@ export default function TaskSnippet({ task, onTaskUpdate }) {
     if (!confirmDelete) return;
 
     try {
-      const response = await axios.delete(`http://localhost:7000/deleteTask/${task._id}`, getAuthHeaders());
+      const response = await axios.delete(`https://taskmanager-rhn5.onrender.com/deleteTask/${task._id}`, getAuthHeaders());
       if (response.status === 200) {
         alert('Task deleted successfully!');
         window.location.reload();

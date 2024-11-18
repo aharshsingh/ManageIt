@@ -2,16 +2,10 @@ const Joi = require('joi');
 const CustomErrorHandler = require('../../customErrorHandler/customErrorHandler');
 const Userdata = require('../../models/user');
 const bcrypt = require('bcrypt');
+const { registerSchema } = require('../../service/validator');
 
 const registerController = {
     async register(req, res, next) {
-        
-        const registerSchema = Joi.object({
-            userName: Joi.string().alphanum().min(3).max(30).required(),
-            email: Joi.string().email().required(),
-            password: Joi.string().pattern(new RegExp('^[a-zA-Z0-9]{4,16}$')).required()
-        });
-
         const { error } = registerSchema.validate(req.body);
         if (error) {
             return next(error);

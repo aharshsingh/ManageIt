@@ -59,6 +59,10 @@ p {
   font-weight: bold;
 }
 
+.signinImage{
+  display: block;
+}
+
 @media (max-width: 768px) {
   .login-container {
     width: 90%;
@@ -69,6 +73,10 @@ p {
   button {
     font-size: 14px;
     padding: 8px;
+  }
+
+  .signinImage{
+    display: none;
   }
 }
 

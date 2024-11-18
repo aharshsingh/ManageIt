@@ -15,7 +15,7 @@ const SignUp = () => {
     e.preventDefault();
     //debugger;
     try {
-      const response = await axios.post('http://localhost:7000/register', {
+      const response = await axios.post('https://taskmanager-rhn5.onrender.com/register', {
         userName,
         email,
         password,
@@ -62,7 +62,9 @@ const SignUp = () => {
       </div>
       {message && <p>{message}</p>}
     </div>
-    <img src={gradbg} alt='iamge' style={{height:'800px', width:'600px', margin: '100px auto', marginLeft:'0px', borderRadius: "0px 15px 15px 0px"}}/>
+    <div className='signinImage' style={{margin: '100px auto', marginLeft:'0px'}}>
+    <img src={gradbg} alt='iamge' style={{height:'800px', width:'600px', borderRadius: "0px 15px 15px 0px"}}/>
+    </div>
     </div>
   );
 };
