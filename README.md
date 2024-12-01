@@ -13,7 +13,7 @@ Task Manager is a MERN stack application that allows users to manage their tasks
 
 ## Deployment Links
 
-- **Frontend**: [Checkout the website](https://taskmangerapp.netlify.app)
+- **Frontend**: [Checkout the website](https://taskmangerapps.netlify.app)
 - **Backend**: [Deployed Backend Link](https://taskmanager-rhn5.onrender.com/)
 
 ---
