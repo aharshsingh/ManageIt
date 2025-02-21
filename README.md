@@ -11,6 +11,12 @@ Task Manager is a MERN stack application that allows users to manage their tasks
 - Set task deadlines
 - View tasks for a specific date
 
+## Deployment Links
+
+- **Frontend**: [Checkout the website](https://taskmanagerapps.netlify.app)
+- **Backend**: [Deployed Backend Link](https://taskmanager-rhn5.onrender.com/)
+
+---
 ## Technologies Used
 
 ### Frontend
