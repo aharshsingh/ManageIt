@@ -20,7 +20,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('https://taskmanager-rhn5.onrender.com/login', {
+      const response = await axios.post('https://manageit-5lu4.onrender.com/login', {
         email,
         password,
       });
@@ -40,7 +40,7 @@ const Login = () => {
               Authorization: `Bearer ${token}`
             }
             });
-            const userInfoResponse = await axios.get(`https://taskmanager-rhn5.onrender.com/userInfo`,getAuthHeaders());
+            const userInfoResponse = await axios.get(`https://manageit-5lu4.onrender.com/userInfo`,getAuthHeaders());
             const { userName, email, _id } = userInfoResponse.data;
             setUser({ userName, email, _id });
             localStorage.setItem('userName', userName);

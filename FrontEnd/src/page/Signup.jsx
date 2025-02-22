@@ -15,7 +15,7 @@ const SignUp = () => {
     e.preventDefault();
     //debugger;
     try {
-      const response = await axios.post('https://taskmanager-rhn5.onrender.com/register', {
+      const response = await axios.post('https://manageit-5lu4.onrender.com/register', {
         userName,
         email,
         password,

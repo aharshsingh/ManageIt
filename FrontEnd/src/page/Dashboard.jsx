@@ -36,7 +36,7 @@ export default function Dashboard() {
   const fetchTaskByPriority = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(`https://taskmanager-rhn5.onrender.com/showTaskByPriority/${user._id}`,getAuthHeaders());
+      const response = await axios.get(`https://manageit-5lu4.onrender.com/showTaskByPriority/${user._id}`,getAuthHeaders());
       if (!response.data || !Array.isArray(response.data)) {
         setMessage('Error in fetching data');
       } else {
@@ -54,7 +54,7 @@ export default function Dashboard() {
     const isoDate = date.toISOString();
     setLoading(true);
     try {
-      const response = await axios.post(`https://taskmanager-rhn5.onrender.com/showTask/${user._id}`, { date: isoDate }, getAuthHeaders());
+      const response = await axios.post(`https://manageit-5lu4.onrender.com/showTask/${user._id}`, { date: isoDate }, getAuthHeaders());
       if (!response.data || !Array.isArray(response.data)) {
         setMessage('Error in fetching data');
       } else {
