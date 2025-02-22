@@ -46,11 +46,11 @@
 .form-group input {
   width: 100%;
   padding: 10px;
-  border: none; /* Remove all borders */
-  border-bottom: 2px solid #5521B4; /* Add bottom border only */
+  border: none; 
+  border-bottom: 2px solid #5521B4; 
   box-sizing: border-box;
   color: black;
-  outline: none; /* Remove default focus outline */
+  outline: none; 
 }
 
 
@@ -127,3 +127,21 @@ p {
     padding: 8px;
   }
 }
+
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1); }
+}
+
+.spinner div {
+  width: 8px;
+  height: 8px;
+  background-color: #fff;
+  border-radius: 50%;
+  display: inline-block;
+  animation: sk-bouncedelay 1.4s infinite ease-in-out;
+  margin-right: 5px;
+}
+
+.spinner .bounce1 { animation-delay: -0.32s; }
+.spinner .bounce2 { animation-delay: -0.16s; }

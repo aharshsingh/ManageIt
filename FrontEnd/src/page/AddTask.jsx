@@ -5,6 +5,8 @@ import '../componentCSS/AddTask.css'
 import axios from 'axios'
 import { UserContext } from '../context/UserContext';
 import TaskAnimation from '../components/TaskAnimation'
+import toast from 'react-hot-toast'
+
 export default function AddTask() {
   const [taskName, setTaskName] = useState('');
   const [description, setDescription] = useState('');
@@ -31,11 +33,11 @@ export default function AddTask() {
           priority
         }, getAuthHeaders());
         if(response.status === 200){
-          alert("Task added to your schedule!")
+          toast.success("Task added to your schedule");
           navigate('/dashboard');
         }
       } catch (error) {
-        console.log(error);
+        toast.error('Failed to add task');
       }
     }
     postTaskData();

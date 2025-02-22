@@ -9,12 +9,14 @@ import EditTask from './page/EditTask';
 import CompletedTask from './page/CompletedTask';
 import Floating from './components/Foalting'
 import { UserProvider } from './context/UserContext'; 
+import { Toaster } from 'react-hot-toast'; 
 import './App.css';
 
 function App() {
   return (
     <UserProvider>
       <BrowserRouter>
+      <Toaster position="top-center" reverseOrder={false}  toastOptions={{ duration: 3000 }} />
         <Routes>
           <Route path="/" element={<Navigate to="/Signup" replace />} />
           <Route path="/Home" Component={Home}></Route>

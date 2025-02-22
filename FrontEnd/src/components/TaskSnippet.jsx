@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import bellIcon from '../images/bell-solid (1).svg';
 import { UserContext } from '../context/UserContext';
+import toast from 'react-hot-toast'
 
 export default function TaskSnippet({ task, onTaskUpdate }) {
   const { user } = useContext(UserContext);
@@ -75,7 +76,7 @@ export default function TaskSnippet({ task, onTaskUpdate }) {
         email
       }, getAuthHeaders());
       if(response.status === 200){
-        alert("Reminder set!")
+        toast.success("Reminder set");
       }   
     }
   }catch (error) {
@@ -89,12 +90,13 @@ export default function TaskSnippet({ task, onTaskUpdate }) {
       console.log(token);
       const response = await axios.patch(`https://manageit-5lu4.onrender.com/completeTask/${task._id}`,{}, getAuthHeaders());
       if (response.status === 200) {
-        alert("Task completed successfully!");
-        window.location.reload();
+        toast.success("Task completed successfully");
+        setTimeout(() => {
+          window.location.reload();
+        }, 3000);
       }
     } catch (error) {
-      console.error('Error completing task:', error);
-      alert('Failed to complete task. Please try again.');
+      toast.error('Failed to complete task');
     }
   };
 
@@ -105,12 +107,13 @@ export default function TaskSnippet({ task, onTaskUpdate }) {
     try {
       const response = await axios.delete(`https://manageit-5lu4.onrender.com/deleteTask/${task._id}`, getAuthHeaders());
       if (response.status === 200) {
-        alert('Task deleted successfully!');
-        window.location.reload();
+        toast.success("Task deleted successfully");
+        setTimeout(() => {
+          window.location.reload();
+        }, 3000);
       }
     } catch (error) {
-      console.error('Error deleting task:', error);
-      alert('Failed to delete task. Please try again.');
+      toast.error('Failed to delete task');
     }
   };
 
