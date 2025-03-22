@@ -69,7 +69,7 @@ export default function TaskSnippet({ task, onTaskUpdate }) {
         setErrorMessage("The slected date for reminder is passing the deadline!")
       }
       else{
-      const response = await axios.post(`https://manageit-5lu4.onrender.com/setReminder`,{
+      const response = await axios.post(`https://manageit-cm4b.onrender.com/setReminder`,{
         taskId,
         reminderDateTime,
         message,
@@ -88,7 +88,7 @@ export default function TaskSnippet({ task, onTaskUpdate }) {
   const handleCompleteTask = async () => {
     try {
       console.log(token);
-      const response = await axios.patch(`https://manageit-5lu4.onrender.com/completeTask/${task._id}`,{}, getAuthHeaders());
+      const response = await axios.patch(`hhttps://manageit-cm4b.onrender.com/completeTask/${task._id}`,{}, getAuthHeaders());
       if (response.status === 200) {
         toast.success("Task completed successfully");
         setTimeout(() => {
@@ -105,7 +105,7 @@ export default function TaskSnippet({ task, onTaskUpdate }) {
     if (!confirmDelete) return;
 
     try {
-      const response = await axios.delete(`https://manageit-5lu4.onrender.com/deleteTask/${task._id}`, getAuthHeaders());
+      const response = await axios.delete(`https://manageit-cm4b.onrender.com/deleteTask/${task._id}`, getAuthHeaders());
       if (response.status === 200) {
         toast.success("Task deleted successfully");
         setTimeout(() => {

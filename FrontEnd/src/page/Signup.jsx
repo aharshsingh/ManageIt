@@ -19,7 +19,7 @@ const SignUp = () => {
     setLoading(true); 
 
     try {
-      const response = await axios.post('https://manageit-5lu4.onrender.com/register', {
+      const response = await axios.post('https://manageit-cm4b.onrender.com/register', {
         userName,
         email,
         password,

@@ -26,7 +26,7 @@ export default function AddTask() {
     console.log({taskName, description, deadline, priority})
     const postTaskData = async ()=>{
       try {
-        const response = await axios.post(`https://manageit-5lu4.onrender.com/addTask/${user._id}`,{  
+        const response = await axios.post(`https://manageit-cm4b.onrender.com/addTask/${user._id}`,{  
           taskName,
           description,
           deadline,   
