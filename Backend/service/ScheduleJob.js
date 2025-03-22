@@ -30,11 +30,11 @@ const startCronJobs = () => {
       const nowUTC = new Date();
       const nowIST = new Date(nowUTC.getTime() + (5.5 * 60 * 60 * 1000)); 
       nowIST.setMilliseconds(0);
-
       const reminders = await Reminder.find({
         reminderDateTime: { $lte: nowIST },
         isSent: false,
       });
+      console.log(reminders)
       for (const reminder of reminders) {
         await sendTimeReminder(reminder);
         reminder.isSent = true;

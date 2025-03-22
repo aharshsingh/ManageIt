@@ -14,6 +14,7 @@ const sendTimeReminder = async (reminder) => {
 
   try {
     task = await Task.findOne({ _id : reminder.taskId})
+    console.log(task)
   } catch (error) {
     console.log(error)
   }
